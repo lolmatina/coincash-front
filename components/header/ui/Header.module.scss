@@ -1,0 +1,40 @@
+.header {
+  background: var(--background-secondary);
+  height: 4rem;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.navigation {
+  $spacing: 0.25rem;
+  $radius: 0.25rem;
+  display: flex;
+  gap: $spacing;
+  background: var(--background-tertiary);
+  padding: $spacing;
+  border-radius: $radius + $spacing;
+  .navItem {
+    height: 2.25rem;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    padding: 0 0.75rem;
+    border-radius: $radius;
+
+    position: relative;
+    span {
+      position: relative;
+      z-index: 1;
+    }
+    .curtain {
+      position: absolute;
+      background: var(--primary);
+      inset: 0;
+      border-radius: $radius;
+    }
+  }
+}
