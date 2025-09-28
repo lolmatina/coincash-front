@@ -1,7 +1,7 @@
 // Verify Page Styles
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%);
+  background: linear-gradient(135deg, var(--background) 0%, var(--background-secondary) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +11,7 @@
 .content {
   width: 100%;
   max-width: 28rem;
+  animation: fadeIn 0.6s ease-out;
 }
 
 .header {
@@ -20,8 +21,8 @@
   .iconWrapper {
     width: 4rem;
     height: 4rem;
-    background: linear-gradient(to right, #10b981, #2563eb);
-    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
+    border-radius: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,28 +38,28 @@
   .title {
     font-size: 1.875rem;
     font-weight: 700;
-    color: #111827;
+    color: white;
     margin-bottom: 0.5rem;
   }
 
   .description {
-    color: #6b7280;
+    color: #9ca3af;
   }
 
   .emailDisplay {
     font-size: 0.875rem;
-    color: #2563eb;
+    color: var(--primary);
     font-weight: 500;
     margin-top: 0.5rem;
   }
 }
 
 .formCard {
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  border: 1px solid #f3f4f6;
-  padding: 2rem;
+  background: rgba(37, 39, 54, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
 
   .form {
     display: flex;
@@ -70,7 +71,7 @@
         display: block;
         font-size: 0.875rem;
         font-weight: 500;
-        color: #374151;
+        color: #e5e7eb;
         margin-bottom: 0.5rem;
       }
 
@@ -80,18 +81,21 @@
         .input {
           width: 100%;
           padding: 0.75rem 1rem 0.75rem 3rem;
-          color: #111827;
-          border: 1px solid #d1d5db;
+          color: white;
+          border: 1px solid rgba(255, 255, 255, 0.2);
           border-radius: 0.5rem;
-          background-color: #f9fafb;
+          background-color: rgba(255, 255, 255, 0.1);
           transition: all 0.2s;
+
+          &::placeholder {
+            color: #9ca3af;
+          }
 
           &:focus {
             outline: none;
-            ring: 2px;
-            ring-color: #3b82f6;
-            border-color: transparent;
-            background-color: white;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+            background-color: rgba(255, 255, 255, 0.15);
           }
 
           &.codeInput {
@@ -114,7 +118,7 @@
 
       .hint {
         font-size: 0.75rem;
-        color: #6b7280;
+        color: #9ca3af;
         margin-top: 0.25rem;
       }
     }
@@ -122,12 +126,12 @@
 }
 
 .message {
-  border-radius: 0.5rem;
+  border-radius: 8px;
   padding: 1rem;
 
   &.success {
-    background-color: #f0fdf4;
-    border: 1px solid #bbf7d0;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
 
     .messageContent {
       display: flex;
@@ -136,20 +140,20 @@
       .messageIcon {
         width: 1.25rem;
         height: 1.25rem;
-        color: #4ade80;
+        color: #22c55e;
         margin-right: 0.5rem;
       }
 
       .messageText {
-        color: #166534;
+        color: #86efac;
         font-size: 0.875rem;
       }
     }
   }
 
   &.error {
-    background-color: #fef2f2;
-    border: 1px solid #fecaca;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
 
     .messageContent {
       display: flex;
@@ -158,12 +162,12 @@
       .messageIcon {
         width: 1.25rem;
         height: 1.25rem;
-        color: #f87171;
+        color: #ef4444;
         margin-right: 0.5rem;
       }
 
       .messageText {
-        color: #991b1b;
+        color: #fca5a5;
         font-size: 0.875rem;
       }
     }
@@ -172,7 +176,7 @@
 
 .submitButton {
   width: 100%;
-  background: linear-gradient(to right, #059669, #2563eb);
+  background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
   color: white;
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
@@ -183,15 +187,13 @@
   transform: scale(1);
 
   &:hover:not(:disabled) {
-    background: linear-gradient(to right, #047857, #1d4ed8);
+    background: linear-gradient(135deg, #e55a2b 0%, #ff7043 100%);
     transform: scale(1.02);
   }
 
   &:focus {
     outline: none;
-    ring: 2px;
-    ring-color: #10b981;
-    ring-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.3);
   }
 
   &:disabled {
@@ -224,7 +226,7 @@
 
   .resendText {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: #9ca3af;
     margin-bottom: 0.75rem;
   }
 
@@ -232,24 +234,23 @@
     display: inline-flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #374151;
-    background: white;
+    color: #e5e7eb;
+    background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     transition: all 0.2s;
 
     &:hover {
-      background-color: #f9fafb;
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
     &:focus {
       outline: none;
-      ring: 2px;
-      ring-color: #3b82f6;
-      ring-offset: 2px;
+      box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
     }
 
     .resendIcon {
@@ -281,18 +282,18 @@
       font-weight: 500;
 
       &.completed {
-        background-color: #059669;
+        background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
         color: white;
       }
 
       &.current {
-        background-color: #2563eb;
+        background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
         color: white;
       }
 
       &.pending {
-        background-color: #d1d5db;
-        color: #6b7280;
+        background: #4b5563;
+        color: #9ca3af;
       }
 
       .stepIcon {
@@ -307,11 +308,11 @@
       border-radius: 0.125rem;
 
       &.completed {
-        background-color: #2563eb;
+        background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
       }
 
       &.pending {
-        background-color: #d1d5db;
+        background: #4b5563;
       }
     }
   }
@@ -326,16 +327,16 @@
     display: flex;
     gap: 2rem;
     font-size: 0.75rem;
-    color: #6b7280;
+    color: #9ca3af;
 
     .label {
       &.completed {
-        color: #059669;
+        color: var(--primary);
       }
 
       &.current {
         font-weight: 500;
-        color: #2563eb;
+        color: var(--primary);
       }
     }
   }
@@ -346,10 +347,10 @@
   text-align: center;
 
   .helpCard {
-    background-color: #fffbeb;
+    background: rgba(251, 191, 36, 0.1);
     border-radius: 0.5rem;
     padding: 1rem;
-    border: 1px solid #fed7aa;
+    border: 1px solid rgba(251, 191, 36, 0.2);
 
     .helpContent {
       display: flex;
@@ -358,7 +359,7 @@
       .helpIcon {
         width: 1.25rem;
         height: 1.25rem;
-        color: #d97706;
+        color: #fbbf24;
         margin-right: 0.5rem;
         margin-top: 0.125rem;
         flex-shrink: 0;
@@ -369,17 +370,28 @@
 
         .helpTitle {
           font-size: 0.875rem;
-          color: #92400e;
+          color: #fcd34d;
           font-weight: 500;
         }
 
         .helpDescription {
           font-size: 0.75rem;
-          color: #b45309;
+          color: #fde68a;
           margin-top: 0.25rem;
         }
       }
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

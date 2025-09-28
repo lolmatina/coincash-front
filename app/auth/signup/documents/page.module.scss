@@ -1,7 +1,7 @@
 // Documents Page Styles
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #dbeafe 0%, #ffffff 50%, #faf5ff 100%);
+  background: linear-gradient(135deg, var(--background) 0%, var(--background-secondary) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,6 +11,7 @@
 .content {
   width: 100%;
   max-width: 42rem;
+  animation: fadeIn 0.6s ease-out;
 }
 
 .header {
@@ -20,8 +21,8 @@
   .iconWrapper {
     width: 4rem;
     height: 4rem;
-    background: linear-gradient(to right, #a855f7, #ec4899);
-    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
+    border-radius: 0.75rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -37,28 +38,28 @@
   .title {
     font-size: 1.875rem;
     font-weight: 700;
-    color: #111827;
+    color: white;
     margin-bottom: 0.5rem;
   }
 
   .description {
-    color: #6b7280;
+    color: #9ca3af;
   }
 
   .emailDisplay {
     font-size: 0.875rem;
-    color: #2563eb;
+    color: var(--primary);
     font-weight: 500;
     margin-top: 0.5rem;
   }
 }
 
 .formCard {
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  border: 1px solid #f3f4f6;
-  padding: 2rem;
+  background: rgba(37, 39, 54, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
 
   .content {
     display: flex;
@@ -68,10 +69,10 @@
 }
 
 .instructions {
-  background-color: #dbeafe;
+  background: rgba(59, 130, 246, 0.1);
   border-radius: 0.5rem;
   padding: 1.5rem;
-  border: 1px solid #bfdbfe;
+  border: 1px solid rgba(59, 130, 246, 0.2);
 
   .instructionsContent {
     display: flex;
@@ -80,7 +81,7 @@
     .instructionsIcon {
       width: 1.5rem;
       height: 1.5rem;
-      color: #2563eb;
+      color: #60a5fa;
       margin-right: 0.75rem;
       margin-top: 0.125rem;
       flex-shrink: 0;
@@ -90,13 +91,13 @@
       .title {
         font-size: 1.125rem;
         font-weight: 500;
-        color: #1e3a8a;
+        color: #93c5fd;
         margin-bottom: 0.5rem;
       }
 
       .list {
         font-size: 0.875rem;
-        color: #1e40af;
+        color: #dbeafe;
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
@@ -123,12 +124,12 @@
     display: block;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #374151;
+    color: #e5e7eb;
   }
 
   .uploadArea {
     position: relative;
-    border: 2px dashed #d1d5db;
+    border: 2px dashed rgba(255, 255, 255, 0.2);
     border-radius: 0.5rem;
     padding: 1.5rem;
     text-align: center;
@@ -136,13 +137,13 @@
     cursor: pointer;
 
     &:hover {
-      border-color: #60a5fa;
-      background-color: #dbeafe;
+      border-color: rgba(255, 107, 53, 0.5);
+      background: rgba(255, 107, 53, 0.1);
     }
 
     &.hasFile {
-      border-color: #86efac;
-      background-color: #f0fdf4;
+      border-color: rgba(34, 197, 94, 0.5);
+      background: rgba(34, 197, 94, 0.1);
     }
 
     .uploadContent {
@@ -169,11 +170,11 @@
         font-weight: 500;
 
         &.success {
-          color: #065f46;
+          color: #86efac;
         }
 
         &.default {
-          color: #374151;
+          color: #e5e7eb;
         }
       }
 
@@ -181,11 +182,11 @@
         font-size: 0.75rem;
 
         &.success {
-          color: #059669;
+          color: #22c55e;
         }
 
         &.default {
-          color: #6b7280;
+          color: #9ca3af;
         }
       }
     }
@@ -210,7 +211,7 @@
     display: block;
     font-size: 0.875rem;
     font-weight: 500;
-    color: #374151;
+    color: #e5e7eb;
   }
 
   .uploadArea {
@@ -256,7 +257,7 @@
         font-weight: 500;
 
         &.success {
-          color: #065f46;
+          color: #86efac;
         }
 
         &.default {
@@ -289,12 +290,12 @@
 }
 
 .message {
-  border-radius: 0.5rem;
+  border-radius: 8px;
   padding: 1rem;
 
   &.success {
-    background-color: #f0fdf4;
-    border: 1px solid #bbf7d0;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.2);
 
     .messageContent {
       display: flex;
@@ -303,12 +304,12 @@
       .messageIcon {
         width: 1.25rem;
         height: 1.25rem;
-        color: #4ade80;
+        color: #22c55e;
         margin-right: 0.5rem;
       }
 
       .messageText {
-        color: #166534;
+        color: #86efac;
         font-size: 0.875rem;
         font-weight: 500;
       }
@@ -316,8 +317,8 @@
   }
 
   &.error {
-    background-color: #fef2f2;
-    border: 1px solid #fecaca;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
 
     .messageContent {
       display: flex;
@@ -326,12 +327,12 @@
       .messageIcon {
         width: 1.25rem;
         height: 1.25rem;
-        color: #f87171;
+        color: #ef4444;
         margin-right: 0.5rem;
       }
 
       .messageText {
-        color: #991b1b;
+        color: #fca5a5;
         font-size: 0.875rem;
       }
     }
@@ -340,7 +341,7 @@
 
 .submitButton {
   width: 100%;
-  background: linear-gradient(to right, #9333ea, #ec4899);
+  background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
   color: white;
   padding: 1rem 1.5rem;
   border-radius: 0.5rem;
@@ -351,15 +352,13 @@
   transform: scale(1);
 
   &:hover:not(:disabled) {
-    background: linear-gradient(to right, #7c2d12, #be185d);
+    background: linear-gradient(135deg, #e55a2b 0%, #ff7043 100%);
     transform: scale(1.02);
   }
 
   &:focus {
     outline: none;
-    ring: 2px;
-    ring-color: #a855f7;
-    ring-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.3);
   }
 
   &:disabled {
@@ -409,18 +408,18 @@
       font-weight: 500;
 
       &.completed {
-        background-color: #059669;
+        background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
         color: white;
       }
 
       &.current {
-        background-color: #a855f7;
+        background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
         color: white;
       }
 
       &.pending {
-        background-color: #d1d5db;
-        color: #6b7280;
+        background: #4b5563;
+        color: #9ca3af;
       }
 
       .stepIcon {
@@ -435,15 +434,15 @@
       border-radius: 0.125rem;
 
       &.completed {
-        background-color: #059669;
+        background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
       }
 
       &.current {
-        background-color: #a855f7;
+        background: linear-gradient(135deg, var(--primary) 0%, #ff8a65 100%);
       }
 
       &.pending {
-        background-color: #d1d5db;
+        background: #4b5563;
       }
     }
   }
@@ -458,16 +457,16 @@
     display: flex;
     gap: 2rem;
     font-size: 0.75rem;
-    color: #6b7280;
+    color: #9ca3af;
 
     .label {
       &.completed {
-        color: #059669;
+        color: var(--primary);
       }
 
       &.current {
         font-weight: 500;
-        color: #a855f7;
+        color: var(--primary);
       }
     }
   }
@@ -478,10 +477,10 @@
   text-align: center;
 
   .securityCard {
-    background-color: #faf5ff;
+    background: rgba(168, 85, 247, 0.1);
     border-radius: 0.5rem;
     padding: 1rem;
-    border: 1px solid #e9d5ff;
+    border: 1px solid rgba(168, 85, 247, 0.2);
 
     .securityContent {
       display: flex;
@@ -491,15 +490,26 @@
       .securityIcon {
         width: 1.25rem;
         height: 1.25rem;
-        color: #a855f7;
+        color: #c084fc;
         margin-right: 0.5rem;
       }
 
       .securityText {
         font-size: 0.875rem;
-        color: #6b21a8;
+        color: #e9d5ff;
       }
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
