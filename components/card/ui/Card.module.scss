@@ -1,0 +1,30 @@
+.card {
+  background: var(--background-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.2s ease-in-out;
+
+  &.sm {
+    padding: 1rem;
+  }
+
+  &.md {
+    padding: 1.5rem;
+  }
+
+  &.lg {
+    padding: 2rem;
+  }
+
+  &.hoverScale:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border-color: var(--border);
+  }
+
+  &.glass {
+    background: rgba(37, 39, 54, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}

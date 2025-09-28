@@ -9,6 +9,7 @@ import { Card, getDataArray } from "@/shared/data/secion-2.data";
 import { useEffect, useState } from "react";
 import { formatAmount, formatPercentage } from "@/shared/utils";
 import { NewsCards } from "@/shared/data/news-section";
+import Link from "next/link";
 
 export default function Page() {
   const [cards, setCards] = useState<Card[]>([]);
@@ -38,9 +39,11 @@ export default function Page() {
             <Button>
               <span>Начать обмен</span>
             </Button>
-            <Button variant="secondary">
-              <span>Войти</span>
-            </Button>
+            <Link href="/auth/signin">
+              <Button variant="secondary">
+                <span>Войти</span>
+              </Button>
+            </Link>
           </div>
           <div className={clsx(styles.badge, styles.secondary)}>
             <HugeiconsIcon icon={UserGroupIcon} />
