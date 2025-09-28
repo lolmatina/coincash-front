@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from 'jose';
 
 export const config = {
-    matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\.css).*)'],
 };
 
 export const publicRoutes = ['/auth/signup', '/auth/signup/verify', '/auth/signup/documents', '/auth/signin', '/auth/verification-pending', '/'];
